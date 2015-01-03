@@ -438,7 +438,11 @@ int main(int argc,char** argv)
 			fprintf(stderr,"%s -f /PATHTOCONFIGFILE/.dhexrc\n",argv[0]);
 			exit(1);
 		} else {
+#ifdef DHEXRC_PATH
+			snprintf(configfile,512,DHEXRC_PATH);
+#else
 			snprintf(configfile,512,"%s/.dhexrc",homedir);
+#endif
 		}
 	}
 
